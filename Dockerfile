@@ -1,6 +1,10 @@
 # syntax=docker/dockerfile:1.2
 FROM node:16-bullseye
 
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update
+RUN apt-get install -y git
+
 RUN npm install -g @listenai/lisa
 RUN --mount=type=secret,id=lisa_token \
     lisa login --token $(cat /run/secrets/lisa_token) && \

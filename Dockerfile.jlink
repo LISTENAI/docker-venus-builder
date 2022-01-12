@@ -1,9 +1,7 @@
 # syntax=docker/dockerfile:1.2
 FROM xingrz/venus-builder:latest
 
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y \
-    xinit libxrandr2 libxfixes3 libxcursor1
+RUN apt-get install -y xinit libxrandr2 libxfixes3 libxcursor1
 
 RUN cd ${HOME}/.listenai/lisa-zephyr/packages/node_modules && \
     cp @lisa-env/csk6/jlink/* @binary/jlink/binary/
