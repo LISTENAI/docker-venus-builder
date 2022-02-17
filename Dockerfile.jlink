@@ -3,9 +3,6 @@ FROM xingrz/venus-builder:latest
 
 RUN apt-get install -y xinit libxrandr2 libxfixes3 libxcursor1
 
-RUN cd ${HOME}/.listenai/lisa-zephyr/packages/node_modules && \
-    cp @lisa-env/csk6/jlink/* @binary/jlink/binary/
-
 ENV DISPLAY=:0
 
 ADD entrypoint-jlink.sh /
